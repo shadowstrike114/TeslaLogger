@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading;
 using Exceptionless;
-using MySql.Data.MySqlClient;
+using MySqlConnector;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 

@@ -10,7 +10,7 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using Exceptionless;
-using MySql.Data.MySqlClient;
+using MySqlConnector;
 
 namespace TeslaLogger
 {
@@ -938,7 +938,7 @@ namespace TeslaLogger
             }
             catch (MySqlException ex)
             {
-                if (ex.ErrorCode == -2147467259) // {"Duplicate entry 'xxx' for key 'ix_endpos'"}
+                if ((int)ex.ErrorCode == -2147467259) // {"Duplicate entry 'xxx' for key 'ix_endpos'"}
                 {
                     webhelper.IsDriving(true);
                     Log(ex.Message);

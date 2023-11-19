@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-using MySql.Data.MySqlClient;
+using MySqlConnector;
 using Exceptionless;
 using Newtonsoft.Json;
 using System.Reflection;

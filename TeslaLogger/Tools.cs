@@ -15,7 +15,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
 
-using MySql.Data.MySqlClient;
+using MySqlConnector;
 using Exceptionless;
 using Newtonsoft.Json;
 
