@@ -167,6 +167,12 @@
             Gets or sets a value indicating whether to include Ip Addresses in MachineInfo and RequestInfo.
             </summary>
         </member>
+        <member name="P:Exceptionless.ExceptionlessConfiguration.IncludeHeaders">
+            <summary>
+            Gets or sets a value indicating whether to include Headers.
+            NOTE: DataExclusions are applied to all Headers keys when enabled.
+            </summary>
+        </member>
         <member name="P:Exceptionless.ExceptionlessConfiguration.IncludeCookies">
             <summary>
             Gets or sets a value indicating whether to include Cookies.
@@ -183,6 +189,11 @@
             <summary>
             Gets or sets a value indicating whether to include query string information.
             NOTE: DataExclusions are applied to all Query String keys when enabled.
+            </summary>
+        </member>
+        <member name="P:Exceptionless.ExceptionlessConfiguration.IncludeModules">
+            <summary>
+            Gets or sets a value indicating whether to include module information.
             </summary>
         </member>
         <member name="P:Exceptionless.ExceptionlessConfiguration.SessionsEnabled">
@@ -456,15 +467,15 @@
         </member>
         <member name="P:Exceptionless.EventSubmissionEventArgsBase.IsUnhandledError">
             <summary>
-            Wether the event is an unhandled error.
+            Whether the event is an unhandled error.
             </summary>
         </member>
         <member name="P:Exceptionless.EventSubmittingEventArgs.Cancel">
             <summary>
-            Wether the event should be canceled.
+            Whether the event should be canceled.
             </summary>
         </member>
-        <member name="M:Exceptionless.ExceptionlessClient.UpdateUserEmailAndDescription(System.String,System.String,System.String)">
+        <member name="M:Exceptionless.ExceptionlessClient.UpdateUserEmailAndDescriptionAsync(System.String,System.String,System.String)">
             <summary>
             Updates the user's email address and description of an event for the specified reference id.
             </summary>
@@ -476,18 +487,6 @@
             <summary>
             Start processing the queue asynchronously.
             </summary>
-        </member>
-        <member name="M:Exceptionless.ExceptionlessClient.ProcessQueue">
-            <summary>
-            Process the queue.
-            </summary>
-        </member>
-        <member name="M:Exceptionless.ExceptionlessClient.ProcessQueueDeferred">
-            <summary>
-            Gets a disposable object that when disposed will trigger the client queue to be processed.
-            <code>using var _ = client.ProcessQueueDeferred();</code>
-            </summary>
-            <returns>An <see cref="T:System.IDisposable"/> that when disposed will trigger the client queue to be processed.</returns>
         </member>
         <member name="M:Exceptionless.ExceptionlessClient.SubmitEvent(Exceptionless.Models.Event,Exceptionless.Plugins.ContextData)">
             <summary>
@@ -554,7 +553,7 @@
             <param name="value">The property value to add.</param>
             <param name="maxDepth">The max depth of the object to include. Used when the property value is an object.</param>
             <param name="excludedPropertyNames">Any property names that should be excluded in complex object values.</param>
-            <param name="ignoreSerializationErrors">Specifies wether complex object properties that throw errors while serializing be ignored</param>
+            <param name="ignoreSerializationErrors">Specifies whether complex object properties that throw errors while serializing be ignored</param>
             <param name="client">
             The ExceptionlessClient instance used for configuration. If a client is not specified, it will use
             ExceptionlessClient.Default.
@@ -569,7 +568,7 @@
             <param name="name">The name of the object to add. If not specified, the name will be implied from the object type.</param>
             <param name="maxDepth">The max depth of the object to include.</param>
             <param name="excludedPropertyNames">Any property names that should be excluded</param>
-            <param name="ignoreSerializationErrors">Specifies wether properties that throw errors while serializing be ignored</param>
+            <param name="ignoreSerializationErrors">Specifies whether properties that throw errors while serializing be ignored</param>
             <param name="client">
             The ExceptionlessClient instance used for configuration. If a client is not specified, it will use
             ExceptionlessClient.Default.
@@ -591,6 +590,17 @@
             The full path for the request including host, path and query String.
             </summary>
         </member>
+        <member name="M:Exceptionless.Extensions.StringExtensions.ComputeHash(System.String,System.Security.Cryptography.HashAlgorithm)">
+            <summary>Compute hash on input string</summary>
+            <param name="input">The string to compute hash on.</param>
+            <param name="algorithm"> </param>
+            <returns>The hash as a hexadecimal String.</returns>
+        </member>
+        <member name="M:Exceptionless.Extensions.StringExtensions.ToSHA256(System.String)">
+            <summary>Compute SHA256 hash on input string</summary>
+            <param name="input">The string to compute hash on.</param>
+            <returns>The hash as a hexadecimal String.</returns>
+        </member>
         <member name="M:Exceptionless.Extensions.ToSimpleErrorModelExtensions.ToSimpleErrorModel(System.Exception,Exceptionless.ExceptionlessClient)">
             <summary>
             Sets the properties from an exception.
@@ -600,6 +610,13 @@
             The ExceptionlessClient instance used for configuration. If a client is not specified, it will use
             ExceptionlessClient.Default.
             </param>
+        </member>
+        <member name="M:Exceptionless.Extensions.TypeExtensions.GetTypeDisplayName(System.Type)">
+            <summary>
+            Gets the types pretty print full name.
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
         </member>
         <member name="M:Exceptionless.EventBuilderExtensions.SetUserIdentity(Exceptionless.EventBuilder,System.String)">
             <summary>
@@ -678,7 +695,7 @@
         </member>
         <member name="M:Exceptionless.EventExtensions.IsCritical(Exceptionless.Models.Event)">
             <summary>
-            Indicates wether the event has been marked as critical.
+            Indicates whether the event has been marked as critical.
             </summary>
         </member>
         <member name="M:Exceptionless.EventExtensions.MarkAsCritical(Exceptionless.Models.Event)">
@@ -907,7 +924,7 @@
             <param name="client">The ExceptionlessClient.</param>
             <param name="apiKey">The API key that will be used when sending events to the server.</param>
         </member>
-        <member name="M:Exceptionless.ExceptionlessClientExtensions.Shutdown(Exceptionless.ExceptionlessClient)">
+        <member name="M:Exceptionless.ExceptionlessClientExtensions.ShutdownAsync(Exceptionless.ExceptionlessClient)">
             <summary>
             Unregisters platform specific exception handlers.
             </summary>
@@ -1056,14 +1073,14 @@
             </summary>
             <param name="client">The client instance.</param>
         </member>
-        <member name="M:Exceptionless.ExceptionlessClientExtensions.SubmitSessionEnd(Exceptionless.ExceptionlessClient,System.String)">
+        <member name="M:Exceptionless.ExceptionlessClientExtensions.SubmitSessionEndAsync(Exceptionless.ExceptionlessClient,System.String)">
             <summary>
             Submits session end.
             </summary>
             <param name="client">The client instance.</param>
             <param name="sessionIdOrUserId">The session id or user id.</param>
         </member>
-        <member name="M:Exceptionless.ExceptionlessClientExtensions.SubmitSessionHeartbeat(Exceptionless.ExceptionlessClient,System.String)">
+        <member name="M:Exceptionless.ExceptionlessClientExtensions.SubmitSessionHeartbeatAsync(Exceptionless.ExceptionlessClient,System.String)">
             <summary>
             Submits session heartbeat.
             </summary>
@@ -1229,6 +1246,11 @@
             Flags the method as a method to preserve during linking if the container class is pulled in.
             </summary>
         </member>
+        <member name="M:Exceptionless.Logging.FileExceptionlessLog.CreateSystemFileMutex(System.String)">
+            <summary>
+            Allows file based locking across processes
+            </summary>
+        </member>
         <member name="P:Exceptionless.Models.Data.EnvironmentInfo.ProcessorCount">
             <summary>
             Gets the number of processors for the current machine.
@@ -1385,7 +1407,7 @@
         </member>
         <member name="P:Exceptionless.Models.Data.RequestInfo.IsSecure">
             <summary>
-            Wether the request was secure or not.
+            Whether the request was secure or not.
             </summary>
         </member>
         <member name="P:Exceptionless.Models.Data.RequestInfo.Host">
@@ -1411,6 +1433,11 @@
         <member name="P:Exceptionless.Models.Data.RequestInfo.ClientIpAddress">
             <summary>
             The client's IP address when the error occurred.
+            </summary>
+        </member>
+        <member name="P:Exceptionless.Models.Data.RequestInfo.Headers">
+            <summary>
+            The header values from the request.
             </summary>
         </member>
         <member name="P:Exceptionless.Models.Data.RequestInfo.Cookies">
@@ -2393,6 +2420,32 @@
             <summary>
             Converts a <see cref="T:System.DateTime"/> to and from Unix epoch time
             </summary>
+        </member>
+        <member name="P:Exceptionless.Json.Converters.UnixDateTimeConverter.AllowPreEpoch">
+            <summary>
+            Gets or sets a value indicating whether the dates before Unix epoch
+            should converted to and from JSON.
+            </summary>
+            <value>
+            <c>true</c> to allow converting dates before Unix epoch to and from JSON;
+            <c>false</c> to throw an exception when a date being converted to or from JSON
+            occurred before Unix epoch. The default value is <c>false</c>.
+            </value>
+        </member>
+        <member name="M:Exceptionless.Json.Converters.UnixDateTimeConverter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Exceptionless.Json.Converters.UnixDateTimeConverter"/> class.
+            </summary>
+        </member>
+        <member name="M:Exceptionless.Json.Converters.UnixDateTimeConverter.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Exceptionless.Json.Converters.UnixDateTimeConverter"/> class.
+            </summary>
+            <param name="allowPreEpoch">
+            <c>true</c> to allow converting dates before Unix epoch to and from JSON;
+            <c>false</c> to throw an exception when a date being converted to or from JSON
+            occurred before Unix epoch. The default value is <c>false</c>.
+            </param>
         </member>
         <member name="M:Exceptionless.Json.Converters.UnixDateTimeConverter.WriteJson(Exceptionless.Json.JsonWriter,System.Object,Exceptionless.Json.JsonSerializer)">
             <summary>
@@ -4082,6 +4135,8 @@
         <member name="P:Exceptionless.Json.JsonReader.MaxDepth">
             <summary>
             Gets or sets the maximum depth allowed when reading JSON. Reading past this depth will throw a <see cref="T:Exceptionless.Json.JsonReaderException"/>.
+            A null value means there is no maximum. 
+            The default value is <c>64</c>.
             </summary>
         </member>
         <member name="P:Exceptionless.Json.JsonReader.TokenType">
@@ -4541,7 +4596,7 @@
             <summary>
             Gets or sets the maximum depth allowed when reading JSON. Reading past this depth will throw a <see cref="T:Exceptionless.Json.JsonReaderException"/>.
             A null value means there is no maximum.
-            The default value is <c>null</c>.
+            The default value is <c>64</c>.
             </summary>
         </member>
         <member name="P:Exceptionless.Json.JsonSerializer.CheckAdditionalContent">
@@ -4857,7 +4912,7 @@
             <summary>
             Gets or sets the maximum depth allowed when reading JSON. Reading past this depth will throw a <see cref="T:Exceptionless.Json.JsonReaderException"/>.
             A null value means there is no maximum.
-            The default value is <c>null</c>.
+            The default value is <c>64</c>.
             </summary>
         </member>
         <member name="P:Exceptionless.Json.JsonSerializerSettings.Formatting">
@@ -4922,6 +4977,12 @@
         <member name="M:Exceptionless.Json.JsonSerializerSettings.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:Exceptionless.Json.JsonSerializerSettings"/> class.
+            </summary>
+        </member>
+        <member name="M:Exceptionless.Json.JsonSerializerSettings.#ctor(Exceptionless.Json.JsonSerializerSettings)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Exceptionless.Json.JsonSerializerSettings"/> class
+            using values copied from the passed in <see cref="T:Exceptionless.Json.JsonSerializerSettings"/>.
             </summary>
         </member>
         <member name="T:Exceptionless.Json.JsonTextReader">
@@ -8563,6 +8624,25 @@
             <param name="reader">The reader.</param>
             <returns>An instance of <see cref="T:Exceptionless.Json.Linq.JRaw"/> with the content of the reader's current token.</returns>
         </member>
+        <member name="T:Exceptionless.Json.Linq.JsonCloneSettings">
+            <summary>
+            Specifies the settings used when cloning JSON.
+            </summary>
+        </member>
+        <member name="M:Exceptionless.Json.Linq.JsonCloneSettings.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Exceptionless.Json.Linq.JsonCloneSettings"/> class.
+            </summary>
+        </member>
+        <member name="P:Exceptionless.Json.Linq.JsonCloneSettings.CopyAnnotations">
+            <summary>
+            Gets or sets a flag that indicates whether to copy annotations when cloning a <see cref="T:Exceptionless.Json.Linq.JToken"/>.
+            The default value is <c>true</c>.
+            </summary>
+            <value>
+            A flag that indicates whether to copy annotations when cloning a <see cref="T:Exceptionless.Json.Linq.JToken"/>.
+            </value>
+        </member>
         <member name="T:Exceptionless.Json.Linq.JsonLoadSettings">
             <summary>
             Specifies the settings used when loading JSON.
@@ -8623,6 +8703,21 @@
             the <see cref="T:System.StringComparison"/> will be used to match a property.
             </summary>
             <value>The comparison used to match property names while merging.</value>
+        </member>
+        <member name="T:Exceptionless.Json.Linq.JsonSelectSettings">
+            <summary>
+            Specifies the settings used when selecting JSON.
+            </summary>
+        </member>
+        <member name="P:Exceptionless.Json.Linq.JsonSelectSettings.ErrorWhenNoMatch">
+            <summary>
+            Gets or sets a flag that indicates whether an error should be thrown if
+            no tokens are found when evaluating part of the expression.
+            </summary>
+            <value>
+            A flag that indicates whether an error should be thrown if
+            no tokens are found when evaluating part of the expression.
+            </value>
         </member>
         <member name="T:Exceptionless.Json.Linq.JToken">
             <summary>
@@ -9519,6 +9614,16 @@
             <param name="errorWhenNoMatch">A flag to indicate whether an error should be thrown if no tokens are found when evaluating part of the expression.</param>
             <returns>A <see cref="T:Exceptionless.Json.Linq.JToken"/>.</returns>
         </member>
+        <member name="M:Exceptionless.Json.Linq.JToken.SelectToken(System.String,Exceptionless.Json.Linq.JsonSelectSettings)">
+            <summary>
+            Selects a <see cref="T:Exceptionless.Json.Linq.JToken"/> using a JSONPath expression. Selects the token that matches the object path.
+            </summary>
+            <param name="path">
+            A <see cref="T:System.String"/> that contains a JSONPath expression.
+            </param>
+            <param name="settings">The <see cref="T:Exceptionless.Json.Linq.JsonSelectSettings"/> used to select tokens.</param>
+            <returns>A <see cref="T:Exceptionless.Json.Linq.JToken"/>.</returns>
+        </member>
         <member name="M:Exceptionless.Json.Linq.JToken.SelectTokens(System.String)">
             <summary>
             Selects a collection of elements using a JSONPath expression.
@@ -9536,6 +9641,16 @@
             A <see cref="T:System.String"/> that contains a JSONPath expression.
             </param>
             <param name="errorWhenNoMatch">A flag to indicate whether an error should be thrown if no tokens are found when evaluating part of the expression.</param>
+            <returns>An <see cref="T:System.Collections.Generic.IEnumerable`1"/> of <see cref="T:Exceptionless.Json.Linq.JToken"/> that contains the selected elements.</returns>
+        </member>
+        <member name="M:Exceptionless.Json.Linq.JToken.SelectTokens(System.String,Exceptionless.Json.Linq.JsonSelectSettings)">
+            <summary>
+            Selects a collection of elements using a JSONPath expression.
+            </summary>
+            <param name="path">
+            A <see cref="T:System.String"/> that contains a JSONPath expression.
+            </param>
+            <param name="settings">The <see cref="T:Exceptionless.Json.Linq.JsonSelectSettings"/> used to select tokens.</param>
             <returns>An <see cref="T:System.Collections.Generic.IEnumerable`1"/> of <see cref="T:Exceptionless.Json.Linq.JToken"/> that contains the selected elements.</returns>
         </member>
         <member name="M:Exceptionless.Json.Linq.JToken.GetMetaObject(System.Linq.Expressions.Expression)">
@@ -9560,6 +9675,13 @@
             <summary>
             Creates a new instance of the <see cref="T:Exceptionless.Json.Linq.JToken"/>. All child tokens are recursively cloned.
             </summary>
+            <returns>A new instance of the <see cref="T:Exceptionless.Json.Linq.JToken"/>.</returns>
+        </member>
+        <member name="M:Exceptionless.Json.Linq.JToken.DeepClone(Exceptionless.Json.Linq.JsonCloneSettings)">
+            <summary>
+            Creates a new instance of the <see cref="T:Exceptionless.Json.Linq.JToken"/>. All child tokens are recursively cloned.
+            </summary>
+            <param name="settings">A <see cref="T:Exceptionless.Json.Linq.JsonCloneSettings"/> object to configure cloning settings.</param>
             <returns>A new instance of the <see cref="T:Exceptionless.Json.Linq.JToken"/>.</returns>
         </member>
         <member name="M:Exceptionless.Json.Linq.JToken.AddAnnotation(System.Object)">
@@ -12916,22 +13038,19 @@
             Returns original value if the conversion isn't possible or a given path is relative.
             </summary>
         </member>
-        <member name="T:System.Diagnostics.ExceptionExtentions">
-            <nodoc />
-        </member>
-        <member name="M:System.Diagnostics.ExceptionExtentions.Demystify``1(``0)">
+        <member name="M:System.Diagnostics.ExceptionExtensions.Demystify``1(``0)">
             <summary>
             Demystifies the given <paramref name="exception"/> and tracks the original stack traces for the whole exception tree.
             </summary>
         </member>
-        <member name="M:System.Diagnostics.ExceptionExtentions.ToStringDemystified(System.Exception)">
+        <member name="M:System.Diagnostics.ExceptionExtensions.ToStringDemystified(System.Exception)">
             <summary>
             Gets demystified string representation of the <paramref name="exception"/>.
             </summary>
             <remarks>
-            <see cref="M:System.Diagnostics.ExceptionExtentions.Demystify``1(``0)"/> method mutates the exception instance that can cause
+            <see cref="M:System.Diagnostics.ExceptionExtensions.Demystify``1(``0)"/> method mutates the exception instance that can cause
             issues if a system relies on the stack trace be in the specific form.
-            Unlike <see cref="M:System.Diagnostics.ExceptionExtentions.Demystify``1(``0)"/> this method is pure. It calls <see cref="M:System.Diagnostics.ExceptionExtentions.Demystify``1(``0)"/> first,
+            Unlike <see cref="M:System.Diagnostics.ExceptionExtensions.Demystify``1(``0)"/> this method is pure. It calls <see cref="M:System.Diagnostics.ExceptionExtensions.Demystify``1(``0)"/> first,
             computes a demystified string representation and then restores the original state of the exception back.
             </remarks>
         </member>
