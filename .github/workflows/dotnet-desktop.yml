@@ -1,13 +1,13 @@
 name: .NET Core Desktop
 
 on:
+  workflow_dispatch:
   push:
-    branches: [ "master" ]
+    branches: [ "master","TeslaFleetAPI"]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "master", "TeslaFleetAPI"]
 
 jobs:
-
   build:
 
     strategy:
