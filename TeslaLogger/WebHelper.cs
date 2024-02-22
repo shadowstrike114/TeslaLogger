@@ -3,7 +3,7 @@ using Exceptionless.Logging;
 using Exceptionless.Models.Data;
 using Google.Protobuf.WellKnownTypes;
 using MySqlConnector;
-using MySqlX.XDevAPI;
+//using MySqlX.XDevAPI; // scheint  unbenutzt zu sein
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -4413,7 +4413,7 @@ DESC", con))
                 using (MySqlCommand cmd = new MySqlCommand(@"Select lat, lng, pos.id, address, fast_charger_brand, max_charger_power 
                         from pos    
                         left join chargingstate on pos.id = chargingstate.pos
-                        where pos.id in (" + MySql.Data.MySqlClient.MySqlHelper.EscapeString(bucket) + ")", con))
+                        where pos.id in (" + MySqlConnector.MySqlHelper.EscapeString(bucket) + ")", con))
                 {
                     MySqlDataReader dr = SQLTracer.TraceDR(cmd);
 
