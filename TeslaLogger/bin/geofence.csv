@@ -199,6 +199,7 @@ Supercharger-V3 DE-Geiselwind, 49.769526,10.470298, 50
 Supercharger-V3 DE-Geiselwind, 49.769742,10.470259, 50
 Supercharger-V3 DE-Gelnhausen,50.188644,9.186141
 Supercharger-V3 DE-Gensingen, 49.90202, 7.929759
+Supercharger-V4 DE-Gigafactory Berlin-Brandenburg, 52.391, 13.796778
 Supercharger DE-Gramschatzer Wald, 49.91202, 10.00176, 30
 Supercharger-V3 DE-Gramschatzer Wald, 49.912304,10.000582, 30
 Supercharger-V3 DE-Greding,49.041979,11.342705,20
@@ -299,7 +300,7 @@ Supercharger-V3 DE-Panketal, 52.620716, 13.541721
 Supercharger-V3 DE-Pfaffenhofen, 48.518322, 11.562151
 Supercharger DE-Pfaffenhofen, 48.518278, 11.562305
 Supercharger DE-Pfalzfeld, 50.1154777, 7.597887
-Supercharger-V3 DE-Pieding, 47.764000,12.904551, 15
+Supercharger-V3 DE-Piding, 47.764000,12.904551, 27
 Supercharger-V3 DE-Plauen, 50.497406,12.170422
 Supercharger-V3 DE-Plattling,48.7887,12.89745
 Supercharger-V3 DE-Posthausen, 53.057578,9.165257
@@ -352,6 +353,7 @@ Supercharger DE-Wertheim, 49.770559, 9.576456
 Supercharger-V3 DE-Wertheim-Almosenberg,49.772295,9.587571
 Supercharger-V3 DE-Wetzlar, 50.552762, 8.532845, 30
 Supercharger DE-Weyarn, 47.865307, 11.790695
+Supercharger-V4 DE-Wildau A10 Center Chausseestraße 1, 52.313098, 13.605076
 Supercharger DE-Wiesbaden, 50.0598477, 8.3451326
 Supercharger DE-Wilnsdorf, 50.8168944, 8.085813
 Supercharger-V3 DE-Wismar, 53.879307, 11.454047
@@ -788,7 +790,7 @@ Supercharger NO-Dombås, 62.074749, 9.12783
 Supercharger NO-Eidfjord, 60.467438, 7.068209
 Supercharger NO-Eidsvoll Verk, 60.312269, 11.145104
 Supercharger NO-Elverum old, 60.884053, 11.541698, 20
-Supercharger-V3 Elverum, 60.887617,11.515327
+Supercharger-V3 NO-Elverum, 60.887617,11.515327
 Supercharger-V3 NO-Fauske, 67.258778,15.400971, 20
 Supercharger NO-Flå, 60.381236, 9.610003
 Supercharger NO-Gol, 60.70232, 8.9862
@@ -884,7 +886,8 @@ Supercharger-V3 RO-Pitești,44.82358585430288,24.909691955626876,46
 Supercharger-V3 RO-Bucharest,44.47895863461448,26.103306971746207,32
 Supercharger-V3 RO-Timișoara,45.755131610991846,21.23298926991955,32
 Supercharger RS-Aleksinac, 43.528816, 21.709413
-Supercharger RS-Belgrade, 44.710065, 20.561113
+Supercharger-V3 RS-Belgrade AVA Shoping Center, 44.711568, 20.562039, 30
+Supercharger RS-Belgrade, 44.7100564, 20.5610539, 30
 Supercharger SE-Arboga, 59.426307, 15.827684
 Supercharger SE-Arvidsjaur, 65.589922, 19.184091
 Supercharger-V3 SE-Björkliden, 68.40734, 18.674918
@@ -1933,6 +1936,7 @@ ARAL DE-Merklingen, 48.516282, 9.759379
 ARAL DE-Montabaur Alleestraße 18, 50.440191, 7.830364, 10
 ARAL DE-Neuenkirchen-Vörden, 52.491559,8.0783, 10
 ARAL DE-Northeim, 51.731118,9.973121
+ARAL DE-Piding, 47.764118,12.904173,5
 ARAL DE-Schwarmstedt Autohof, 52.673543, 9.688409
 ARAL DE-Schwerin, 53.600345, 11.465313
 ARAL DE-Stuhr, 53.020699, 8.687762, 15
@@ -3237,6 +3241,7 @@ ELEN HR-Vižinada, 45.33017,13.75735
 
 EnelX IT-Ramiola, 44.698924,10.090093
 
+EnBW CZ-Karlovy Vary, 50.232775,12.8678
 EnBW DE-Aach, 47.840881, 8.852887
 EnBW DE-Achern Fautenbacher Straße, 48.627599512154, 8.0569213389771
 EnBW DE-Achern Güterhallenstraße, 48.62889, 8.06168
@@ -4048,7 +4053,7 @@ EnBW DE-Korntal-Münchingen Stuttgarter Str., 48.850184000054, 9.1129279998806
 EnBW DE-Korntal-Münchingen Zuffenhauser Straße, 48.830060014917, 9.1312400018646
 EnBW DE-Kraftsdorf, 50.8955874, 11.9809509
 EnBW DE-Kraichgau Nord, 49.244202585141, 8.8788539785638
-EnBW DE-Kraichgau Süd, 49.240896, 8.879563, 20
+EnBW DE-Kraichgau Süd, 49.240896, 8.879563, 50
 EnBW DE-Krefeld Bauhaus, 51.318214, 6.582751
 EnBW DE-Krefeld Mevissenstr. Bauhaus, 51.34964, 6.52949
 EnBW DE-Krefeld Shell, 51.351963, 6.63886
@@ -4379,7 +4384,7 @@ EnBW DE-Pfungstadt Ost, 49.812106,8.579272
 EnBW DE-Pfungstadt West, 49.8124703, 8.5769616
 EnBW DE-Philippsburg Rheinschanzinsel, 49.2526653, 8.4371768
 EnBW DE-Philippsburg Rote-Tor-Str., 49.235269, 8.454226
-EnBW DE-Piding Lattenbergstraße, 47.7642445, 12.9035826
+EnBW DE-Piding Lattenbergstraße, 47.7642445, 12.9035826, 10
 EnBW DE-Pirmasens Zweibrücker Str., 49.21469, 7.59586
 EnBW DE-Plankstadt Am Festplatz, 49.396146505181, 8.5914160193734
 EnBW DE-Plankstadt Friedrichstr., 49.3912, 8.59681
@@ -4900,7 +4905,7 @@ EnBW DE-Wiesloch Meßplatzstr., 49.293157, 8.701533
 EnBW DE-Wietzendorf, 52.944965412447, 9.881728552972
 EnBW DE-Wildau, 52.3179906, 13.605636
 EnBW DE-Wildberg Hohe Gasse, 48.623846, 8.746806
-EnBW DE-Wildenfels, 50.6804795, 12.590721
+EnBW DE-Wildenfels, 50.6804795, 12.590721, 25
 EnBW DE-Wildflecken, 50.377087, 9.914401
 EnBW DE-Wilhelmshaven,53.5285386,8.0885948
 EnBW DE-Winningen Moseltal Ost, 50.316586, 7.4988, 10
@@ -5758,7 +5763,7 @@ EWE-GO DE-Weyhe Im Bruch, 52.984732, 8.84356
 EWE-GO DE-Wiefelstede Kirchstraße, 53.25615, 8.11495
 EWE-GO DE-Wiesmoor Hauptstraße, 53.400672, 7.712459
 EWE-GO DE-Wiesmoor Kanalstr II, 53.39487, 7.70292
-EWE-GO DE-Wildenfels Arno-Schmidt-Straße, 50.68072, 12.59116
+EWE-GO DE-Wildenfels Arno-Schmidt-Straße, 50.68072, 12.59116, 10
 EWE-GO DE-Wildeshausen Delmenhorster Straße, 52.902774869048, 8.4444769583328
 EWE-GO DE-Wildeshausen Gildeplatz, 52.896432, 8.438846
 EWE-GO DE-Wildeshausen Glaner Straße, 52.90179, 8.416729
@@ -5794,7 +5799,6 @@ EWE-GO DE-Zeitz Geußnitzer Straße, 51.03663, 12.16023
 EWE-GO DE-Zetel Neuenburger Straße, 53.41799, 7.972179
 EWE-GO DE-Zeven Kivinanstraße, 53.292162, 9.274971
 EWE-GO DE-Zwickau Oskar-Arnold-Straße, 50.70627, 12.50094
-EWE-GO DE-Zwickau Ost, 50.6807333, 12.591146, 10
 EWE-GO DE-Zülpich Villa Rustica, 50.704799, 6.669532
 EWE-GO DE-Überlingen Abigstraße, 47.774522, 9.186378
 
@@ -5891,7 +5895,7 @@ Fastned NL-Vliedberg, 51.484310, 3.850840
 Fastned NL-Vrijenban, 51.983412, 4.392855
 Fastned NL-Wellerzand, 52.784360, 5.759275
 Fastned NL-Willemsbos, 52.360573, 5.766818
-Fastned-NL Swentibold, 51.010590, 5.800570
+Fastned NL-Swentibold, 51.010590, 5.800570
 
 Familia DE-Hamburg, 53.608366, 10.044162
 Familia DE-Osterholz-Scharmbeck, 53.232695, 8.754733
